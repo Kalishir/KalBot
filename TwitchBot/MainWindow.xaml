@@ -1,0 +1,91 @@
+﻿<Controls:MetroWindow x:Class="TwitchBot.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+            Title="KalChat" 
+            Height="600" 
+            Width="300"
+            ResizeMode="CanResize"
+            ShowIconOnTitleBar="True"
+            Background="#FF222222"
+            Foreground="#FFAAAAAA">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Menu IsMainMenu="True" Background="{x:Null}" Foreground="#FFE6E6E6">
+                <MenuItem Header="_Settings" FontSize="10" Background="{x:Null}">
+                    <MenuItem Header="_Connection Settings" Background="#FF222222" Click="ConnectionSettings_Click"/>
+                </MenuItem>
+            </Menu>
+        </Grid>
+        <Grid x:Name="Tabs" Grid.Row="1">
+            <TabControl x:Name="tabControl" Grid.Row="0">
+                <TabItem x:Name="ConsoleTab"  BorderBrush="#88AAAAAA"
+                        BorderThickness="1"
+                        Margin="5,2,-5,-2">
+                    <TabItem.Header>
+                        <Grid>
+                            <TextBlock 
+                                x:Name="ChatTab"
+                                Foreground="#FFAAAAAA" 
+                                Text="Console" 
+                                FontSize="10" 
+                                Margin="2,2,2,2"/>
+                        </Grid>
+                    </TabItem.Header>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="30"/>
+                            </Grid.RowDefinitions>
+                            <RichTextBox
+                                x:Name="ConsoleBox"
+                                ScrollViewer.CanContentScroll="True"
+                                ScrollViewer.VerticalScrollBarVisibility="Auto"
+                                ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                                Focusable="False"
+                                Foreground="#CCCCCC"
+                                Background="#00000000"
+                                BorderBrush="#88AAAAAA"
+                                BorderThickness="1"
+                                FontFamily="Consolas"
+                                FontSize="14.667"
+                                AcceptsReturn="True" 
+                                Margin="2"
+                                IsReadOnly="True"
+                                Grid.Row="0"/>
+                            <TextBox
+                                x:Name="TextEntry"
+                                Grid.Row="1"
+                                Background="#00000000"
+                                Foreground="#CCCCCC"
+                                Margin="2"
+                                BorderBrush="#88AAAAAA"
+                                BorderThickness="1"
+                                AcceptsReturn="False"/>
+                        </Grid>
+                </TabItem>
+                <TabItem
+                    BorderBrush="#88AAAAAA"
+                    BorderThickness="1"
+                    Margin="6,2,-6,-2">
+                    <TabItem.Header>
+                        <TextBlock
+                            x:Name = "AddChannelTab"
+                            Foreground="#FFAAAAAA" 
+                            Text="+" 
+                            FontSize="10" 
+                            VerticalAlignment="Top" 
+                            Grid.Column="1" 
+                            Margin="2"/>
+                    </TabItem.Header>
+                </TabItem>
+            </TabControl>            
+        </Grid>
+    </Grid>
+</Controls:MetroWindow>
+
