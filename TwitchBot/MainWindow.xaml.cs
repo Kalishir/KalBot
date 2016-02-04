@@ -26,6 +26,8 @@ namespace TwitchBot
     {
         TextWriter _writer = null;
         ConnectionSettings conWin;
+        IRC.IRCManager ircManager;
+        IRC.IRCSettings ircSettings;
 
         public MainWindow()
         {
@@ -40,6 +42,25 @@ namespace TwitchBot
 
             TextEntry.PreviewKeyDown += new KeyEventHandler(TextEntered);
             AddChannelTab.PreviewMouseLeftButtonDown += new MouseButtonEventHandler(AddNewChannelTab);
+
+
+
+            ircSettings = new IRC.IRCSettings();
+            ircSettings.IPAddress = "irc.twitch.tv";
+            ircSettings.port = 6667;
+            ircSettings.userName = "bardbot";
+            ircSettings.password = "";
+
+            ircManager = new IRC.IRCManager(ircSettings);
+            ircManager.IncomingText += IrcManager_IncomingText;
+            ircManager.Connect();
+            ircManager.JoinChannel("richard_hammer");
+        }
+
+        private void IrcManager_IncomingText(string text)
+        {
+            Console.WriteLine(text);
+            ircManager.sendMessage("Test");
         }
 
         private void TextEntered(object sender, KeyEventArgs e)
@@ -79,6 +100,8 @@ namespace TwitchBot
                 conWin.Close();
                 conWin = null;
             }
+
+            ircManager.Disconnect();
             base.OnClosed(e);
         }
 
