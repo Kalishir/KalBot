@@ -12,5 +12,6 @@ namespace TwitchBot.IRC
         public int port;
         public string userName;
         public string password;
+        public string channel;
     }
 }

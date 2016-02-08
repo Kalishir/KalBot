@@ -49,12 +49,13 @@ namespace TwitchBot
             ircSettings.IPAddress = "irc.twitch.tv";
             ircSettings.port = 6667;
             ircSettings.userName = "bardbot";
-            ircSettings.password = "";
+            ircSettings.password = OAuthKey.Key;
+            ircSettings.channel = "sinaea";
 
             ircManager = new IRC.IRCManager(ircSettings);
             ircManager.IncomingText += IrcManager_IncomingText;
             ircManager.Connect();
-            ircManager.JoinChannel("richard_hammer");
+            ircManager.JoinChannel(ircSettings.channel);
         }
 
         private void IrcManager_IncomingText(string text)

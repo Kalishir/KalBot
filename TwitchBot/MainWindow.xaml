@@ -4,7 +4,7 @@
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
             Title="KalChat" 
             Height="600" 
-            Width="300"
+            Width="1000"
             ResizeMode="CanResize"
             ShowIconOnTitleBar="True"
             Background="#FF222222"

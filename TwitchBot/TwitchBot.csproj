@@ -76,6 +76,7 @@
     </Compile>
     <Compile Include="IRC\IRCManager.cs" />
     <Compile Include="IRC\IRCSettings.cs" />
+    <Compile Include="OAuthKey.cs" />
     <Compile Include="TextBoxStreamWriter.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
