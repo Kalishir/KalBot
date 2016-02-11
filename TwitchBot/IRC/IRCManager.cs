@@ -77,13 +77,17 @@ namespace TwitchBot.IRC
         void sendIRCMessage(string message)
         {
             Console.WriteLine(message);
-            ircWriter.WriteLine(message);
-            ircWriter.Flush();
+            if (ircWriter != null)
+            {
+                ircWriter.WriteLine(message);
+                ircWriter.Flush();
+            }
         }
 
         public void sendMessage(string message)
         {
-
+            string IRCMessage = ":" + settings.userName + "!"+ settings.userName + "@" + settings.userName + ".tmi.twitch.tv PRIVMSG #" + settings.channel + " : " + message;
+            sendIRCMessage(IRCMessage);
         }
     }
 }

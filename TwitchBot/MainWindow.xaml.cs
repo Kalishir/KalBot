@@ -61,7 +61,6 @@ namespace TwitchBot
         private void IrcManager_IncomingText(string text)
         {
             Console.WriteLine(text);
-            ircManager.sendMessage("Test");
         }
 
         private void TextEntered(object sender, KeyEventArgs e)
@@ -70,6 +69,7 @@ namespace TwitchBot
             {
                 TextBox s = (TextBox)sender as TextBox;
                 Console.WriteLine(s.Text);
+                ircManager.sendMessage(s.Text);
                 s.Text = "";
             }
         }
